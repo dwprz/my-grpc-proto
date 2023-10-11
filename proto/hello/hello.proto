@@ -13,4 +13,5 @@ message HelloResponse {
 
 service HelloService {
     rpc SayHello (HelloRequest) returns (HelloResponse) {}; // Penambahan kurung kurawal {} dalam definisi metode RPC menunjukkan bahwa Anda dapat menambahkan logika bisnis khusus ke dalam metode tersebut
+    rpc SayManyHellos (HelloRequest) returns (stream HelloResponse) {}; // this server-stream service
 }
