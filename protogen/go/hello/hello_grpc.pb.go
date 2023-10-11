@@ -84,7 +84,6 @@ func (x *helloServiceSayManyHellosClient) Recv() (*HelloResponse, error) {
 	return m, nil
 }
 
-<<<<<<< HEAD
 func (c *helloServiceClient) SayHelloToEveryone(ctx context.Context, opts ...grpc.CallOption) (HelloService_SayHelloToEveryoneClient, error) {
 	stream, err := c.cc.NewStream(ctx, &HelloService_ServiceDesc.Streams[1], HelloService_SayHelloToEveryone_FullMethodName, opts...)
 	if err != nil {
