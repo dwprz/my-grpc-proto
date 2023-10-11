@@ -2,16 +2,7 @@ syntax = "proto3";
 
 option go_package = "github.com/dwprz/my-grpc-proto/protogen/go/bank";
 
-import "proto/google/type/date.proto";
-
-message CurrentBalanceRequest {
-    uint32 account_number = 1 [json_name="acount_number"];
-}
-
-message CurrentBalanceResponse {
-    uint64 amount = 1;
-    google.type.Date current_date = 2 [json_name="current_date"]; 
-}
+import "proto/bank/type/account.proto";
 
 service BankService {
     rpc GetCurrentBalance (CurrentBalanceRequest) returns (CurrentBalanceResponse) {};
