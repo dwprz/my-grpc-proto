@@ -8,6 +8,7 @@ package bank
 
 import (
 	context "context"
+	_type "github.com/dwprz/my-grpc-proto/protogen/go/bank/type"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -26,7 +27,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BankServiceClient interface {
-	GetCurrentBalance(ctx context.Context, in *CurrentBalanceRequest, opts ...grpc.CallOption) (*CurrentBalanceResponse, error)
+	GetCurrentBalance(ctx context.Context, in *_type.CurrentBalanceRequest, opts ...grpc.CallOption) (*_type.CurrentBalanceResponse, error)
 }
 
 type bankServiceClient struct {
@@ -37,8 +38,8 @@ func NewBankServiceClient(cc grpc.ClientConnInterface) BankServiceClient {
 	return &bankServiceClient{cc}
 }
 
-func (c *bankServiceClient) GetCurrentBalance(ctx context.Context, in *CurrentBalanceRequest, opts ...grpc.CallOption) (*CurrentBalanceResponse, error) {
-	out := new(CurrentBalanceResponse)
+func (c *bankServiceClient) GetCurrentBalance(ctx context.Context, in *_type.CurrentBalanceRequest, opts ...grpc.CallOption) (*_type.CurrentBalanceResponse, error) {
+	out := new(_type.CurrentBalanceResponse)
 	err := c.cc.Invoke(ctx, BankService_GetCurrentBalance_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -50,7 +51,7 @@ func (c *bankServiceClient) GetCurrentBalance(ctx context.Context, in *CurrentBa
 // All implementations must embed UnimplementedBankServiceServer
 // for forward compatibility
 type BankServiceServer interface {
-	GetCurrentBalance(context.Context, *CurrentBalanceRequest) (*CurrentBalanceResponse, error)
+	GetCurrentBalance(context.Context, *_type.CurrentBalanceRequest) (*_type.CurrentBalanceResponse, error)
 	mustEmbedUnimplementedBankServiceServer()
 }
 
@@ -58,7 +59,7 @@ type BankServiceServer interface {
 type UnimplementedBankServiceServer struct {
 }
 
-func (UnimplementedBankServiceServer) GetCurrentBalance(context.Context, *CurrentBalanceRequest) (*CurrentBalanceResponse, error) {
+func (UnimplementedBankServiceServer) GetCurrentBalance(context.Context, *_type.CurrentBalanceRequest) (*_type.CurrentBalanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentBalance not implemented")
 }
 func (UnimplementedBankServiceServer) mustEmbedUnimplementedBankServiceServer() {}
@@ -75,7 +76,7 @@ func RegisterBankServiceServer(s grpc.ServiceRegistrar, srv BankServiceServer) {
 }
 
 func _BankService_GetCurrentBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CurrentBalanceRequest)
+	in := new(_type.CurrentBalanceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -87,7 +88,7 @@ func _BankService_GetCurrentBalance_Handler(srv interface{}, ctx context.Context
 		FullMethod: BankService_GetCurrentBalance_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BankServiceServer).GetCurrentBalance(ctx, req.(*CurrentBalanceRequest))
+		return srv.(BankServiceServer).GetCurrentBalance(ctx, req.(*_type.CurrentBalanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
