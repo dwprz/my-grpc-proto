@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "github.com/dwprz/my-grpc-proto/protogen/go/hello";
+
+message HelloRequest {
+    string name = 1;
+    uint32 age = 2;
+}
+
+message HelloResponse {
+    string greet = 1;
+}
+
+service HelloService {
+    rpc SayHello (HelloRequest) returns (HelloResponse) {}; // Penambahan kurung kurawal {} dalam definisi metode RPC menunjukkan bahwa Anda dapat menambahkan logika bisnis khusus ke dalam metode tersebut
+}

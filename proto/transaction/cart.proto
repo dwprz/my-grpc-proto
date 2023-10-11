@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package transaction;
+
+option go_package = "github.com/dwprz/my-grpc-proto/protogen/go/transaction";
+
+message CartItem {
+    string item_uuid = 1 [json_name="item_uuid"];
+    uint32 quantity = 2;
+    uint32 item_price = 3 [json_name="item_price"];
+    bool texable = 4;
+}
+
+message Cart {
+    uint32 uuid_id = 1 [json_name="uuid_id"];
+    repeated CartItem items = 2 ;
+}
