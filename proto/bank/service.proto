@@ -9,3 +9,9 @@ import "proto/bank/type/account.proto";
 service BankService {
     rpc GetCurrentBalance (CurrentBalanceRequest) returns (CurrentBalanceResponse) {};
 }
+
+service BankAccountsService {
+    rpc CreateBankAccount (BankAccountRequest) returns (BankAccountResponse);
+    rpc FindByAccountNumber (BankAccountNumber) returns (BankAccountResponse);
+    rpc UpdateBankAccount (BankAccountRequest) returns (BankAccountResponse);
+}

@@ -4,6 +4,7 @@ package bank;
 
 option go_package = "github.com/dwprz/my-grpc-proto/protogen/go/bank";
 
+import "proto/google/protobuf/timestamp.proto";
 import "proto/google/type/date.proto";
 
 message CurrentBalanceRequest {
@@ -13,4 +14,28 @@ message CurrentBalanceRequest {
 message CurrentBalanceResponse {
     double amount = 1;
     google.type.Date current_date = 2 [json_name="current_date"]; 
+}
+
+message BankAccountRequest {
+    string account_uuid = 1 [json_name="account_uuid"];  
+	string account_number = 2 [json_name="account_number"]; 
+	string account_name = 3 [json_name="account_name"];
+	string currency = 4;        
+	double current_balance = 5 [json_name="current_balance"];
+	google.protobuf.Timestamp created_at = 6 [json_name="created_at"];
+	google.protobuf.Timestamp updated_at = 7 [json_name="updated_at"];
+}
+
+message BankAccountResponse {
+    string account_uuid = 1 [json_name="account_uuid"];  
+	string account_number = 2 [json_name="account_number"]; 
+	string account_name = 3 [json_name="account_name"];
+	string currency = 4;        
+	double current_balance = 5 [json_name="current_balance"];
+	google.protobuf.Timestamp created_at = 6 [json_name="created_at"];
+	google.protobuf.Timestamp updated_at = 7 [json_name="updated_at"];
+}
+
+message BankAccountNumber {
+    string account_number = 1 [json_name="account_number"];
 }
