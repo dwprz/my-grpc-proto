@@ -9,4 +9,3 @@ import "proto/bank/type/account.proto";
 service BankService {
     rpc GetCurrentBalance (CurrentBalanceRequest) returns (CurrentBalanceResponse) {};
 }
-
