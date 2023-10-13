@@ -14,3 +14,4 @@ message CurrentBalanceResponse {
     double amount = 1;
     google.type.Date current_date = 2 [json_name="current_date"]; 
 }
+
