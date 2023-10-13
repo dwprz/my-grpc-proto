@@ -11,4 +11,3 @@ service BankService {
     rpc GetCurrentBalance (CurrentBalanceRequest) returns (CurrentBalanceResponse) {};
     rpc FetchExchangeRates(ExchangeRateRequest) returns (stream ExchangeRateResponse) {};
 }
-
