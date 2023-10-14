@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/dwprz/my-grpc-proto/protogen/go/bank";
+
+import "proto/google/type/date.proto";
+import "proto/google/type/datetime.proto";
+
+enum TransactionType {
+    TRANSACTION_TYPE_UNSPECIFIED = 0;
+    TRANSACTION_TYPE_IN = 1;
+    TRANSACTION_TYPE_OUT = 2;   
+}
+
+message Transaction {
+    string account_number = 1 [json_name="account_number"];
+    TransactionType type = 2;
+    double amount = 3;
+    google.type.DateTime timestamp = 4;
+    string notes = 16;
+}
+
+message TransactionSummary {
+    string account_number = 1 [json_name="account_number"];
+    double sum_total_in = 2 [json_name="sum_total_in"];
+    double sum_total_out = 3 [json_name="sum_total_out"];
+    double sum_amount = 4;
+    google.type.Date transaction_date = 5 [json_name="transaction_date"]; 
+}
