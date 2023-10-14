@@ -136,9 +136,11 @@ func (UnimplementedBankServiceServer) GetCurrentBalance(context.Context, *Curren
 func (UnimplementedBankServiceServer) FetchExchangeRates(*ExchangeRateRequest, BankService_FetchExchangeRatesServer) error {
 	return status.Errorf(codes.Unimplemented, "method FetchExchangeRates not implemented")
 }
+
 func (UnimplementedBankServiceServer) SummarizeTransactions(BankService_SummarizeTransactionsServer) error {
 	return status.Errorf(codes.Unimplemented, "method SummarizeTransactions not implemented")
 }
+
 func (UnimplementedBankServiceServer) mustEmbedUnimplementedBankServiceServer() {}
 
 // UnsafeBankServiceServer may be embedded to opt out of forward compatibility for this service.

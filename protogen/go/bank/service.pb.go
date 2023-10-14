@@ -81,6 +81,7 @@ func file_proto_bank_service_proto_init() {
 	file_proto_bank_type_account_proto_init()
 	file_proto_bank_type_exchange_proto_init()
 	file_proto_bank_type_transaction_proto_init()
+
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
