@@ -7,4 +7,4 @@ git push -u origin master
 git checkout -b "feat-hello-proto"
 
 # create source code go proto
-protoc --go_opt=module=github.com/dwprz/my-grpc-proto --go_out=. --go-grpc_opt=module=github.com/dwprz/my-grpc-proto --go-grpc_out=. ./proto/hello/*.proto ./proto/payment/*.proto ./proto/transaction/*.proto ./proto/bank/*.proto ./proto/bank/type/*.proto
+protoc --go_opt=module=github.com/dwprz/my-grpc-proto --go_out=. --go-grpc_opt=module=github.com/dwprz/my-grpc-proto --go-grpc_out=. ./proto/hello/*.proto ./proto/payment/*.proto ./proto/transaction/*.proto ./proto/bank/*.proto ./proto/bank/type/*.proto ./proto/resiliency/*.proto

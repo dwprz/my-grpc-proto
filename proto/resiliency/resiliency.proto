@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package resiliency;
+
+option go_package = "github.com/dwprz/my-grpc-proto/protogen/go/resiliency";
+
+message ResiliencyRequest {
+    int32 min_delay_second = 1 [json_name="min_delay_second"];
+    int32 max_delay_second = 2 [json_name="max_delay_second"];
+    repeated uint32 status_codes = 3 [json_name="status_codes"];
+  }
+
+  message ResiliencyResponse {
+    string dummy_string = 1 [json_name="dummy_string"];
+  }
+  
+  service ResiliencyService {
+    rpc UnaryResiliency (ResiliencyRequest) returns (ResiliencyResponse) {}; // unary
+    rpc ServerStreamingResiliency (ResiliencyRequest) returns (stream ResiliencyResponse) {}; // server-streaming
+    rpc ClientStreamingResiliency (stream ResiliencyRequest) returns (ResiliencyResponse) {}; // client-streaming
+    rpc BiDirectionalResiliency (stream ResiliencyRequest) returns (stream ResiliencyResponse) {}; // bi-directional
+  }
